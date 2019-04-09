@@ -8,7 +8,7 @@
 
 .left-column {
   flex: 1;
-  background: #187aeb;
+  background: black;
   color: #fff;
   min-height:100vh;
   padding: 25px;
@@ -20,5 +20,9 @@
 .right-column {
   flex: 3;
   padding: 20px;
-  background: cornflowerblue
+  background: lightgray
+}
+
+.card {
+  box-shadow: 0 0 5px #222;
 }

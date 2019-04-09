@@ -27,6 +27,7 @@ function renderButtons() {
     var a = $("<button>");
     // Adding a class of movie-btn to our button
     a.addClass("topic-btn");
+    //a.addClass("btn btn-light")
     // Adding a data-attribute
     a.attr("data-name", topicArray[i]);
     // Providing the initial button text
@@ -40,14 +41,25 @@ function renderButtons() {
 }
 
 
-// This function handles events where a movie button is clicked
+// This function handles events where a add topic button is clicked
 $("#add-topic").on("click", function(event) {
   event.preventDefault();
   // This line grabs the input from the textbox
   var topic = $("#topic-input").val().trim();
 
-  // Adding movie from the textbox to our array
-  topicArray.push(topic);
+  if(topic === ""){
+
+    return false;
+  } else if (topicArray.includes(topic)){
+    alert("Button already exists!")
+    return false;
+  } else {
+    // Adding topic from the textbox to our array
+    topicArray.push(topic);
+  }
+
+
+  
 
   // Calling renderButtons which handles the processing of our movie array
   renderButtons();
@@ -75,7 +87,7 @@ function getGifData() {
   })
   // After data comes back from the request
   .then(function(response) {
-
+    console.log(queryURL);
     console.log(response);
     // storing the data from the AJAX request in the gifData variable
     var gifs = response.data;
