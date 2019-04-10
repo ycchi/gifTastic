@@ -109,7 +109,8 @@ function displayGif(gifData) {
   var $card = $('<div>');
   $card.addClass('card h-100');
 
-  var $cardBody = $('<div>').addClass('card-body d-flex flex-column');
+  var $cardBody = $('<div>').addClass('card-body d-flex flex-column flex-wrap align-content-around');
+
 
   $("<img>")
     .addClass('card-img-top gif')
@@ -121,7 +122,12 @@ function displayGif(gifData) {
 
   $('<p>')
     .addClass('card-text')
-    .text(gifData.rating)
+    .text("Title: " + gifData.title)
+    .appendTo($cardBody);
+  
+  $('<p>')
+    .addClass('card-text')
+    .text("Rating: " + gifData.rating)
     .appendTo($cardBody);
 
   $cardBody.appendTo($card);
